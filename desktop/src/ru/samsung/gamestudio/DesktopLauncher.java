@@ -11,5 +11,4 @@ public class DesktopLauncher {
 		config.setTitle("FlappyBird");
 		new Lwjgl3Application(new MyGdxGame(), config);
 	}
-
 }

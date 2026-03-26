@@ -1,22 +1,23 @@
-package ru.samsung.gamestudio;
+package ru.samsung.gamestudio.components;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import ru.samsung.gamestudio.MyGdxGame;
 
 public class MovingBackground {
 
     Texture texture;
 
     int texture1X, texture2X;
-    int speed = 4;
+    int speed = 2;
 
-    MovingBackground() {
+    public MovingBackground(String pathToTexture) {
         texture1X = 0;
         texture2X = MyGdxGame.SCR_WIDTH;
-        texture = new Texture("game_bg.png");
+        texture = new Texture(pathToTexture);
     }
 
-    void move() {
+    public void move() {
         texture1X -= speed;
         texture2X -= speed;
 
@@ -28,12 +29,12 @@ public class MovingBackground {
         }
     }
 
-    void draw(Batch batch) {
+    public void draw(Batch batch) {
         batch.draw(texture, texture1X, 0, MyGdxGame.SCR_WIDTH, MyGdxGame.SCR_HEIGHT);
         batch.draw(texture, texture2X, 0, MyGdxGame.SCR_WIDTH, MyGdxGame.SCR_HEIGHT);
     }
 
-    void dispose() {
+    public void dispose() {
         texture.dispose();
     }
 

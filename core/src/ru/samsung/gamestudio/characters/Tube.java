@@ -1,4 +1,4 @@
-package ru.samsung.gamestudio;
+package ru.samsung.gamestudio.characters;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -18,7 +18,7 @@ public class Tube {
 
     Random random;
 
-    int speed = 10;
+    int speed = 8;
     final int width = 200;
     final int height = 700;
     int gapHeight = 400;
@@ -39,12 +39,12 @@ public class Tube {
         isPointReceived = false;
     }
 
-    void draw(Batch batch) {
+    public void draw(Batch batch) {
         batch.draw(textureUpperTube, x, gapY + gapHeight / 2, width, height);
         batch.draw(textureDownTube, x, gapY - gapHeight / 2 - height, width, height);
     }
 
-    void move() {
+    public void move() {
         x -= speed;
         if (x < -width) {
             isPointReceived = false;
@@ -71,7 +71,7 @@ public class Tube {
         isPointReceived = true;
     }
 
-    void dispose() {
+    public void dispose() {
         textureDownTube.dispose();
         textureUpperTube.dispose();
     }

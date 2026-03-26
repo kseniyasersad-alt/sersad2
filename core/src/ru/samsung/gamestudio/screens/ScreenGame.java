@@ -1,21 +1,27 @@
-package ru.samsung.gamestudio;
+package ru.samsung.gamestudio.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
+import ru.samsung.gamestudio.MyGdxGame;
+import ru.samsung.gamestudio.characters.Tube;
+import ru.samsung.gamestudio.characters.Bird;
+import ru.samsung.gamestudio.components.MovingBackground;
+import ru.samsung.gamestudio.components.PointCounter;
 
 import static ru.samsung.gamestudio.MyGdxGame.SCR_HEIGHT;
 import static ru.samsung.gamestudio.MyGdxGame.SCR_WIDTH;
 
-class ScreenGame implements Screen {
+public class ScreenGame implements Screen {
+
+    final int pointCounterMarginTop = 60;
+    final int pointCounterMarginRight = 400;
 
     MyGdxGame myGdxGame;
 
-
     Bird bird;
     PointCounter pointCounter;
-
     MovingBackground background;
 
     int tubeCount = 3;
@@ -24,34 +30,43 @@ class ScreenGame implements Screen {
     int gamePoints;
     boolean isGameOver;
 
-    final int pointCounterMarginTop = 60;
-    final int pointCounterMarginRight = 400;
-
-    ScreenGame(MyGdxGame myGdxGame) {
+    public ScreenGame(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
 
         initTubes();
-        bird = new Bird(0, 0, 10, 200, 150);
-        pointCounter = new PointCounter(SCR_WIDTH - pointCounterMarginTop, SCR_HEIGHT - pointCounterMarginRight);
-        background = new MovingBackground();
+        background = new MovingBackground("backgrounds/game_bg.png");
+        bird = new Bird(20, SCR_HEIGHT / 2, 10, 250, 200);
+        pointCounter = new PointCounter(SCR_WIDTH - pointCounterMarginRight, SCR_HEIGHT - pointCounterMarginTop);
     }
-
 
     @Override
     public void show() {
         gamePoints = 0;
         isGameOver = false;
+        bird.setY(SCR_HEIGHT / 2);
+        initTubes();
     }
 
     @Override
     public void render(float delta) {
 
         if (Gdx.input.justTouched()) {
-            bird.onClick();
+
+            Vector3 touch = myGdxGame.camera.unproject(
+                    new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0)
+            );
         }
 
         background.move();
         bird.fly();
+
+        if (isGameOver) {
+            myGdxGame.setScreen(myGdxGame.screenRestart);
+        }
+
+        if (Gdx.input.justTouched()) {
+            bird.onClick();
+        }
 
         if (!bird.isInField()) {
             System.out.println("not in field");
@@ -110,6 +125,8 @@ class ScreenGame implements Screen {
     @Override
     public void dispose() {
         bird.dispose();
+        background.dispose();
+        pointCounter.dispose();
         for (int i = 0; i < tubeCount; i++) {
             tubes[i].dispose();
         }

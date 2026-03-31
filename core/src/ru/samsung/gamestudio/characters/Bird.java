@@ -27,10 +27,10 @@ public class Bird {
         frameCounter = 0;
 
         framesArray = new Texture[]{
-                new Texture("bird0.png"),
-                new Texture("bird1.png"),
-                new Texture("bird2.png"),
-                new Texture("bird1.png"),
+                new Texture("birdTexture/bird0.png"),
+                new Texture("birdTexture/bird1.png"),
+                new Texture("birdTexture/bird2.png"),
+                new Texture("birdTexture/bird1.png"),
         };
     }
 

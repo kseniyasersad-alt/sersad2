@@ -8,6 +8,7 @@ import ru.samsung.gamestudio.MyGdxGame;
 import ru.samsung.gamestudio.characters.Tube;
 import ru.samsung.gamestudio.characters.Bird;
 import ru.samsung.gamestudio.components.MovingBackground;
+import ru.samsung.gamestudio.components.PauseButton;
 import ru.samsung.gamestudio.components.PointCounter;
 
 import static ru.samsung.gamestudio.MyGdxGame.SCR_HEIGHT;
@@ -19,7 +20,6 @@ public class ScreenGame implements Screen {
     final int pointCounterMarginRight = 400;
 
     MyGdxGame myGdxGame;
-
     Bird bird;
     PointCounter pointCounter;
     MovingBackground background;
@@ -34,6 +34,8 @@ public class ScreenGame implements Screen {
         this.myGdxGame = myGdxGame;
 
         initTubes();
+
+
         background = new MovingBackground("backgrounds/game_bg.png");
         bird = new Bird(20, SCR_HEIGHT / 2, 10, 250, 200);
         pointCounter = new PointCounter(SCR_WIDTH - pointCounterMarginRight, SCR_HEIGHT - pointCounterMarginTop);

@@ -15,7 +15,6 @@ public class ScreenRestart implements Screen {
 
     MovingBackground background;
     PointCounter pointCounter;
-
     TextButton buttonRestart;
     TextButton buttonMenu;
 

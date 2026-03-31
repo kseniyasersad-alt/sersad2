@@ -19,7 +19,6 @@ public class PauseButton {
 
     public void draw(Batch batch) {
         batch.draw(texture, x, y, buttonWidth, buttonHeight );
-
     }
 
     public void dispose() {

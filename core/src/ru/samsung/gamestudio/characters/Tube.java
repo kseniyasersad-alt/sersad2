@@ -18,10 +18,10 @@ public class Tube {
 
     Random random;
 
-    int speed = 9;
-    final int width = 250;
-    final int height = 750;
-    int gapHeight = 460;
+    int speed = 8;
+    final int width = 230;
+    final int height = 730;
+    int gapHeight = 430;
     int padding = 100;
 
     boolean isPointReceived;

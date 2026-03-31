@@ -12,7 +12,7 @@ public class Bird {
 
     int speed;
     int jumpHeight;
-    final int maxHeightOfJump = 120;
+    final int maxHeightOfJump = 110;
     boolean jump = true;
 
     int frameCounter;

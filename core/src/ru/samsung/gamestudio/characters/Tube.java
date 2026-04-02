@@ -21,7 +21,7 @@ public class Tube {
     int speed = 8;
     final int width = 230;
     final int height = 730;
-    int gapHeight = 430;
+    int gapHeight = 420;
     int padding = 100;
 
     boolean isPointReceived;

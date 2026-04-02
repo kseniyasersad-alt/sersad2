@@ -18,7 +18,6 @@ public class ScreenRestart implements Screen {
     TextButton buttonRestart;
     TextButton buttonMenu;
 
-    int gamePoints;
 
     public ScreenRestart(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
@@ -58,7 +57,7 @@ public class ScreenRestart implements Screen {
         background.draw(myGdxGame.batch);
         buttonMenu.draw(myGdxGame.batch);
         buttonRestart.draw(myGdxGame.batch);
-        pointCounter.draw(myGdxGame.batch, gamePoints);
+        pointCounter.draw(myGdxGame.batch, myGdxGame.screenGame.gamePoints);
 
         myGdxGame.batch.end();
     }

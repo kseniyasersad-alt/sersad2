@@ -6,7 +6,10 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
 import ru.samsung.gamestudio.MyGdxGame;
 import ru.samsung.gamestudio.components.MovingBackground;
+import ru.samsung.gamestudio.components.NameOfGame;
 import ru.samsung.gamestudio.components.TextButton;
+
+import static ru.samsung.gamestudio.MyGdxGame.SCR_HEIGHT;
 
 public class ScreenMenu implements Screen {
 
@@ -15,13 +18,15 @@ public class ScreenMenu implements Screen {
     MovingBackground background;
     TextButton buttonStart;
     TextButton buttonExit;
+    NameOfGame nameOfGame;
 
     public ScreenMenu(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
 
-        buttonStart = new TextButton(100, 400, "Start");
-        buttonExit = new TextButton(700, 400, "Exit");
-        background = new MovingBackground("backgrounds/restart_bg.png");
+        buttonStart = new TextButton(100, 150, "Start");
+        buttonExit = new TextButton(700, 150, "Exit");
+        background = new MovingBackground("backgrounds/game_bg.png");
+        nameOfGame = new NameOfGame(390, SCR_HEIGHT/2 +240);
     }
 
     @Override
@@ -50,9 +55,11 @@ public class ScreenMenu implements Screen {
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
         myGdxGame.batch.begin();
 
+
         background.draw(myGdxGame.batch);
         buttonStart.draw(myGdxGame.batch);
         buttonExit.draw(myGdxGame.batch);
+        nameOfGame.draw(myGdxGame.batch);
 
         myGdxGame.batch.end();
     }

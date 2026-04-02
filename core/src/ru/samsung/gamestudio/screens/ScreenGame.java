@@ -8,7 +8,6 @@ import ru.samsung.gamestudio.MyGdxGame;
 import ru.samsung.gamestudio.characters.Tube;
 import ru.samsung.gamestudio.characters.Bird;
 import ru.samsung.gamestudio.components.MovingBackground;
-import ru.samsung.gamestudio.components.PauseButton;
 import ru.samsung.gamestudio.components.PointCounter;
 
 import static ru.samsung.gamestudio.MyGdxGame.SCR_HEIGHT;

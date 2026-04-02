@@ -15,7 +15,6 @@ public class MyGdxGame extends Game {
 	public SpriteBatch batch;
 	public OrthographicCamera camera;
 
-
 	public Screen screenRestart;
 	public ScreenGame screenGame;
 	public ScreenMenu screenMenu;
